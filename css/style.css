@@ -1,0 +1,27 @@
+body{
+	background-color: orange;
+}
+
+#chao{
+	border-bottom: 7px dashed black;
+}
+
+.andandoDireita{
+	background: url("../ImagemPersonagem/ClyntonAndando.gif");
+	width: 256px;
+	height: 256px;
+	background-repeat: no-repeat;
+}
+.andandoEsquerda{
+	background: url("../ImagemPersonagem/ClyntonAndandoEsquerda.gif");
+	width: 256px;
+	height: 256px;
+	background-repeat: no-repeat;
+}
+
+.parado{
+	background: url("../ImagemPersonagem/ClyntonParado.gif");
+	width: 256px;
+	height: 256px;
+}
+
