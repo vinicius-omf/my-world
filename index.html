@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-
+<meta charset="utf-8"/>
 <html>
 	<head>
 		<title>Inicial</title>
-		<link rel="stylesheet" href="css/style.css"
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
-		<div style="width: 100%">
+		<div class="row col-md-12" style="padding: 5px">
+			<select id="selectCorDeFundo" class="com=md-1 offset-md-11 selectpicker show-tick" onchange="mudarCorDeFundo()">
+			  <option value="1">Mostarda</option>
+			  <option value="2">Ketchup</option>
+			  <option value="3">Maionese</option>
+			</select>
+		</div>
+		<div class="row col-md-12" id="chao">
 			<div id="personagem" class="parado" style="position: relative;"></div>
-		<div>
+		</div>
+
+		<div class="row" style="padding: 5px">
+			<div class="col-md-5 offset-md-7" style="border: 1px black dashed;">	
+				<label>Fome:</label>		
+				<div class="progress">
+				  <div class="progress-bar  bg-danger" style="width:5%"></div>
+				</div>	
+				<label>Solidão:</label>				
+				<div class="progress">
+				  <div class="progress-bar bg-info" style="width:70%"></div>
+				</div>	
+				<label>Tristeza:</label>				
+				<div class="progress">
+				  <div class="progress-bar bg-warning" style="width:70%"></div>
+				</div>	
+				<label>Sono:</label>	
+				<div class="progress">
+				  <div class="progress-bar bg-success" style="width:70%"></div>
+				</div>
+			</div>
+
+		</div>
+	
 		
-		<div id="chao"></div>
+
+
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>	
 		<script type="text/javascript" src="js/personagem.js"></script>
-
+		<script type="text/javascript" src="js/site.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>	
 	</body>
 </html>

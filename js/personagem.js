@@ -28,7 +28,7 @@ function moverProLadoDireito() {
 	let personagem = document.getElementById("personagem");   
 	let pos = personagem.getBoundingClientRect().left;
 	pos=pos+50;
-	$("#personagem").animate({left: pos}, {duration: 500, complete:function(){
+	$("#personagem").animate({left: pos}, {duration: 300, complete:function(){
 			document.getElementById('personagem').className = '';
 			document.getElementById('personagem').className = 'parado';
 	}});
@@ -39,7 +39,7 @@ function moverProLadoEsquerdo() {
 	let pos = personagem.getBoundingClientRect().left;
 	if(pos>10){
 		pos=pos-50;
-		$("#personagem").animate({left: pos}, {duration: 500, complete:function(){
+		$("#personagem").animate({left: pos}, {duration: 300, complete:function(){
 			document.getElementById('personagem').className = '';
 			document.getElementById('personagem').className = 'parado';
 		}});
