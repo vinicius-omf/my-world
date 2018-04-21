@@ -10,3 +10,36 @@ function mudarCorDeFundo() {
 	}
 	
 }
+
+function adicionarTexto(){
+	$("#conteudo").css("display","none");
+	$("#mudar-textos").css('display','block');
+
+}
+
+function salvarTextos(){
+	let titulo = $("#titulo-site").val();
+	let texto = $("#texto-site").val();
+	$('#titulo').html(titulo);
+	$('#texto').html(texto);
+	$("#conteudo").css("display","block");
+	$("#mudar-textos").css('display','none');
+}
+
+$("#btn-status").popover({
+    html: true, 
+    placement: "bottom",
+    container: 'body',
+	content: function() {
+          return $('#conteudo-popover').html();
+        }
+});
+
+$("#btn-acoes").popover({
+    html: true, 
+    placement: "bottom",
+    container: 'body',
+	content: function() {
+          return $('#menu-acoes').html();
+        }
+});

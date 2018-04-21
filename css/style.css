@@ -1,6 +1,6 @@
 body{
 	background-color: orange;
-	padding: 5px;
+	padding: 50px;
 }
 
 #chao{
@@ -40,4 +40,10 @@ form label{
 }
 .progress{
 	margin-bottom: 5px;
+}
+#acoes .row{
+	margin-bottom: 5px;
+}
+#titulo{
+	 font-size: 4rem;
 }

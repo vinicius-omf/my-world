@@ -28,22 +28,23 @@ function moverProLadoDireito() {
 	let personagem = document.getElementById("personagem");   
 	let pos = personagem.getBoundingClientRect().left;
 	pos=pos+50;
-	$("#personagem").animate({left: pos}, {duration: 300, complete:function(){
-			document.getElementById('personagem').className = '';
-			document.getElementById('personagem').className = 'parado';
-	}});
-	personagem.style.left = pos + 'px'; 
+	 $("#personagem").animate({left: pos}, {duration: 300, complete:function(){
+	 		document.getElementById('personagem').className = '';
+	 		document.getElementById('personagem').className = 'parado';
+	 		personagem.style.left = pos + 'px';
+	 }});
+	 
 }
 function moverProLadoEsquerdo() {
 	let personagem = document.getElementById("personagem");
 	let pos = personagem.getBoundingClientRect().left;
-	if(pos>10){
-		pos=pos-50;
-		$("#personagem").animate({left: pos}, {duration: 300, complete:function(){
-			document.getElementById('personagem').className = '';
-			document.getElementById('personagem').className = 'parado';
-		}});
-		personagem.style.left = pos + 'px'; 
+	pos = pos-100 >= 0 ? pos-100 : 0;
+	if(pos>0){
+		 $("#personagem").animate({left: pos}, {duration: 300, complete:function(){
+		 	document.getElementById('personagem').className = '';
+		 	document.getElementById('personagem').className = 'parado';
+		 	personagem.style.left = pos + 'px'; 
+		 }});	
 	}   
 	
 }
