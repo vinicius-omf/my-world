@@ -82,7 +82,7 @@ $("#btn-acoes").popover({
 
 
 function getWeather(lati, long, callback) {
-   var url = 'http://api.openweathermap.org/data/2.5/weather?APPID=3ee0b96227cd0dc3f39812ffa4f8dc6d';
+   var url = 'https://api.openweathermap.org/data/2.5/weather?APPID=3ee0b96227cd0dc3f39812ffa4f8dc6d';
    
    $.ajax({
      dataType: "jsonp",
