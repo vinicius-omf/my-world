@@ -88,3 +88,7 @@ form label{
 #proximo {
   float: right;
 }
+#tempoImagem{
+  width: 100px;
+  height: 100px;
+}

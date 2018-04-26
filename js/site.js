@@ -79,3 +79,46 @@ $("#btn-acoes").popover({
           return $('#menu-acoes').html();
         }
 });
+
+
+function getWeather(lati, long, callback) {
+   var url = 'http://api.openweathermap.org/data/2.5/weather?APPID=3ee0b96227cd0dc3f39812ffa4f8dc6d';
+   
+   $.ajax({
+     dataType: "jsonp",
+     url: url,
+     jsonCallback: 'jsonp',
+     data: { lat: lati, lon: long },
+     cache: false,
+     success: function (data) {
+         callback(data);
+     }
+   });
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pesquisarTempoLocal);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function pesquisarTempoLocal(position){
+	getWeather(position.coords.latitude, position.coords.longitude, function(data) {
+		let cityname = data.name;
+		let iconcode = data.weather[0].icon;
+		let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+		$('#tempoImagem').attr('src', iconurl);
+		$('#cidade').html(cityname);
+	});
+}
+
+function onStartAplication(){
+	getLocation();
+}
+
+$(document).ready(
+	 onStartAplication()
+
+);
