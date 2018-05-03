@@ -15,11 +15,16 @@ function keyDownTextField(e) {
 		moverProLadoEsquerdo()
 
 	}
-	else if(keyCode == 38){
+	else if(keyCode == 38 || keyCode == 32){
+		pular();
+
+	}
+	else if(keyCode == 40){
 		document.getElementById('personagem').className = '';
 		document.getElementById('personagem').className = 'parado';
 
 	}
+
 }
 
 
@@ -46,5 +51,11 @@ function moverProLadoEsquerdo() {
 		 	personagem.style.left = pos + 'px'; 
 		 }});	
 	}   
+	
+}
+
+function pular() {
+	 $("#personagem").addClass('pulando')
+	 setTimeout(function(){ $("#personagem").removeClass('pulando') }, 500);
 	
 }

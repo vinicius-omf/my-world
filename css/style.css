@@ -43,6 +43,12 @@ body{
 	height: 128px;
 	background-repeat: no-repeat;
 }
+.pulando{
+	background: url("../ImagemPersonagem/ClyntonPulando128.gif");
+	width: 128px;
+	height: 128px;
+	background-repeat: no-repeat;
+}
 
 .fonteTitulo{
 	font-family: 'Gaegu', cursive;
