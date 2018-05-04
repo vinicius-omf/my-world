@@ -55,7 +55,21 @@ function moverProLadoEsquerdo() {
 }
 
 function pular() {
-	 $("#personagem").addClass('pulando')
+	 $("#personagem").addClass('pulando');
 	 setTimeout(function(){ $("#personagem").removeClass('pulando') }, 500);
 	
+}
+
+function comerSanduiche(){
+
+	$("#personagem").addClass('sanduiche');
+	let fome = $("#barraFome").css("width");
+	fome = fome.replace("%", "");
+	let valorInteiro = parseInt(fome);
+	valorInteiro -= 20;
+	if(valorInteiro < 0 ) valorInteiro = 0;
+	valorInteiro += "%";
+	$("#barraFome").css({"width": valorInteiro});
+
+	setTimeout(function(){ $("#personagem").removeClass('sanduiche') }, 1000);
 }

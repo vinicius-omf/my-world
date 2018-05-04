@@ -49,6 +49,12 @@ body{
 	height: 128px;
 	background-repeat: no-repeat;
 }
+.sanduiche{
+	background: url("../ImagemPersonagem/ClyntonSanduiche128.gif");
+	width: 128px;
+	height: 128px;
+	background-repeat: no-repeat;
+}
 
 .fonteTitulo{
 	font-family: 'Gaegu', cursive;
