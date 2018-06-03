@@ -118,6 +118,18 @@ function onStartAplication(){
 	getLocation();
 }
 
+function handleVisibilityChange() {
+	let audio = document.getElementById("musica");
+	if (document.hidden) {
+		audio.pause();
+	} else  {
+		audio.play();
+	}
+  }
+  
+document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+
 $(document).ready(
 	 onStartAplication()
 
