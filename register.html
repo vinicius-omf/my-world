@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Inicial</title>
+		<title>Register</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		
@@ -10,13 +10,16 @@
 	</head>
 
 	<body>
-		<div class="row" id="chao">
-			<div id="personagem" class="parado col-md-2"></div>
-			<div class="col-md-9 offset-md-1"><span class="fonteTitulo">Bem Vindo Ao Mundo Do Clyto</h1></div>
+		<div>
+			<div class="col-md-9 offset-md-1"><span class="fonteTitulo">Entre No Mundo Do Clyto</h1></div>
 		</div>
-		
-		<div class="row loginForm" >
-			<div class="col-md-6 offset-md-5 grupo-form">
+		<div class="row registerForm" >
+			<div class="col-md-6 offset-md-1">
+				<div class="grupo-form">
+					<div class="form-group">
+						<label for="email">Nome:</label>
+						<input type="email" class="form-control" id="nome">
+					</div>
 					<div class="form-group">
 						<label for="email">Login:</label>
 						<input type="email" class="form-control" id="email">
@@ -25,14 +28,17 @@
 						<label for="pwd">Senha:</label>
 						<input type="password" class="form-control" id="pwd">
 					</div>
-					<button onclick="autenticar()" class="btn btn-lg btn-default">Entrar</button>
-					<button onclick="registrar()" class="btn btn-lg btn-default">Registrar</button>
+					<button onclick="autenticar()" class="btn btn-lg btn-default">Registrar</button>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<img src="ImagemPersonagem/ClyntonAcenando.gif">
 			</div>
 		</div>
 
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/appAjax.js"></script>
-		<script type="text/javascript" src="js/login.js"></script>		
+		<script type="text/javascript" src="js/register.js"></script>		
 	</body>
 </html>

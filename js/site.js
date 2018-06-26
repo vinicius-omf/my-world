@@ -30,6 +30,20 @@ function mudarChao() {
 	
 }
 
+function mudarChaoInicial(valorChao) {
+
+	let elemento = $("#chao");
+
+	if(valorChao == 1){
+		elemento.removeClass('chao2').removeClass('chao3').addClass('chao1');
+	}else if(valorChao == 2){
+		elemento.removeClass('chao1').removeClass('chao3').addClass('chao2');
+	}else{
+		elemento.removeClass('chao1').removeClass('chao2').addClass('chao3');
+	}
+	
+}
+
 function adicionarTexto(){
 	$(".site").css('display','block');
 	$("#personagem-chao").css("display","none");
@@ -115,6 +129,7 @@ function pesquisarTempoLocal(position){
 }
 
 function onStartAplication(){
+	buscarInformacoesDoMundo();
 	getLocation();
 }
 
@@ -129,8 +144,27 @@ function handleVisibilityChange() {
   
 document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
+function buscarInformacoesDoMundo(){
+
+	let email = localStorage.getItem("email");;
+
+	let sucesso = function(data){
+		mudarCorDeFundo(data.configuracaoMundo.fundo);
+		mudarChaoInicial(data.configuracaoMundo.chao);
+
+	};
+
+	let ferror = function(){
+		alert("Ops! Algo de errado aconteceu!");
+		$(location).attr('href', 'login.html');
+	};
+	
+
+	postAjax('http://localhost:3000/projects', {email: email}, sucesso, ferror);
+}
 
 $(document).ready(
+
 	 onStartAplication()
 
 );
