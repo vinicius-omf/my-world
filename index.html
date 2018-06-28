@@ -51,11 +51,11 @@
 
 		<div class="site">
 			<div class="row" id="conteudo">
-					<div id="titulo">
+					<div id="titulo" class="col-md-12">
 						Lorem ipsum fermentum commodo laoreet
 						
 					</div>
-					<div id="texto">
+					<div id="texto" class="col-md-12">
 						Lorem ipsum fermentum commodo laoreet semper molestie convallis iaculis taciti, himenaeos vivamus tempus cubilia massa tristique sociosqu nec, diam porttitor euismod mollis euismod netus pellentesque sollicitudin. placerat interdum id aliquet condimentum nec suscipit eget praesent torquent tristique, vehicula potenti fusce class congue taciti magna volutpat. eleifend proin dolor dapibus enim mi vulputate interdum litora fusce, conubia sem vivamus tellus orci justo primis quam, suspendisse hendrerit in elit platea fermentum eleifend ut. sociosqu sapien etiam enim tempor inceptos pulvinar pellentesque curabitur eu, curabitur eget porta nostra lorem accumsan velit litora condimentum habitasse, taciti nisl dictumst metus ultricies scelerisque mi ante. 
 
 						Neque adipiscing potenti ultrices habitasse accumsan eget at ad donec hendrerit, risus mattis velit feugiat leo quisque conubia nostra praesent. porttitor fermentum nam a tristique porta vitae semper quam, habitant proin sollicitudin cursus lacinia semper purus sed orci, fames tellus placerat sed torquent suscipit porta. interdum elementum eget rhoncus euismod hac vehicula, vitae posuere felis venenatis tempor nullam gravida, velit arcu sociosqu quisque vestibulum. porttitor malesuada ornare netus donec quam semper vivamus platea lacinia, mauris consectetur diam dictumst placerat nulla elit rhoncus id, conubia blandit volutpat non dictumst pretium turpis sit. 
@@ -67,7 +67,7 @@
 			<div id="personagem-chao">
 				<div class="row">
 					<div class="col-md-2">
-						<img id="tempoImagem" src="">
+						<img id="tempoImagem" src="ImagemPersonagem/sol.png">
 					</div>
 					<div class="col-md-2 offset-md-8">
 						<button class="btn btn-dark "  id="btn-acoes"  data-toggle="popover"><i class="fa fa-caret-square-o-down"></i>
@@ -91,11 +91,10 @@
 			<div id="mudar-textos" style="display:none;">
 				<div class="container">
 				  <h2>Mudar textos:</h2>
-				  <form class="form-horizontal" action="/action_page.php">
 				    <div class="form-group">
 				      <label class="control-label col-sm-2" for="titulo-site">Título:</label>
 				      <div class="col-sm-10">
-				        <input type="email" class="form-control" id="titulo-site" placeholder="Digite o título" name="titulo-site">
+				        <input class="form-control" id="titulo-site" placeholder="Digite o título" name="titulo-site">
 				      </div>
 				    </div>
 				    <div class="form-group">
@@ -109,7 +108,6 @@
 					      <button onclick="salvarTextos()" class="btn btn-default">Salvar</button>
 					    </div>
 					 </div>
-				  </form>
 				</div>
 			</div>
 
@@ -122,15 +120,15 @@
 							</div>	
 							<label>SOLIDÃO:</label>				
 							<div class="progress">
-							  <div class="progress-bar bg-info" style="width:70%"></div>
+							  <div id="barraSolidao" class="progress-bar bg-info" style="width:70%"></div>
 							</div>	
 							<label>TRISTEZA:</label>				
 							<div class="progress">
-							  <div class="progress-bar bg-warning" style="width:70%"></div>
+							  <div id="barraTristeza" class="progress-bar bg-warning" style="width:70%"></div>
 							</div>	
 							<label>SONO:</label>	
 							<div class="progress">
-							  <div class="progress-bar bg-success" style="width:70%"></div>
+							  <div id="barraSono" class="progress-bar bg-success" style="width:70%"></div>
 							</div>
 						</div>
 

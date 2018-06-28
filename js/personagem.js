@@ -62,14 +62,33 @@ function pular() {
 
 function comerSanduiche(){
 
+	let email = localStorage.getItem("email");
+	
 	$("#personagem").addClass('sanduiche');
-	let fome = $("#barraFome").css("width");
-	fome = fome.replace("%", "");
-	let valorInteiro = parseInt(fome);
-	valorInteiro -= 20;
-	if(valorInteiro < 0 ) valorInteiro = 0;
-	valorInteiro += "%";
-	$("#barraFome").css({"width": valorInteiro});
-
 	setTimeout(function(){ $("#personagem").removeClass('sanduiche') }, 1000);
+
+	let sucesso= function(data){
+		$("#barraFome").css({"width": data.fome+"%"});
+	}
+
+	let ferror = function(){
+		alert("Ops! Algo de errado aconteceu!");
+		$(location).attr('href', 'login.html');
+	}
+	postAjax('http://localhost:3000/projects/comerSanduiche', {email: email}, sucesso, ferror);
 }
+
+
+// function comerSanduiche(){
+
+// 	$("#personagem").addClass('sanduiche');
+// 	let fome = $("#barraFome").css("width");
+// 	fome = fome.replace("%", "");
+// 	let valorInteiro = parseInt(fome);
+// 	valorInteiro -= 20;
+// 	if(valorInteiro < 0 ) valorInteiro = 0;
+// 	valorInteiro += "%";
+// 	$("#barraFome").css({"width": valorInteiro});
+
+// 	setTimeout(function(){ $("#personagem").removeClass('sanduiche') }, 1000);
+// }

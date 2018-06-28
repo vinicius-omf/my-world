@@ -66,14 +66,25 @@ function irParaHome(){
 	$("#personagem-chao").css("display","block");
 }
 function salvarTextos(){
+	let email = localStorage.getItem("email");
 	let titulo = $("#titulo-site").val();
 	let texto = $("#texto-site").val();
-	$(".site").css('display','block');
-	$('#titulo').html(titulo);
-	$('#texto').html(texto);
-	$("#conteudo").css("display","block");
-	$("#mudar-textos").css('display','none');
-	$("#personagem-chao").css("display","block");
+	
+
+	let sucesso = function(data){
+		alterarTexto(data.configuracaoMundo.texto);
+		alterarTitulo(data.configuracaoMundo.titulo);
+		irParaHome();
+		
+	}
+	let errorMundo = function(){
+		alert("Ops! Algo de errado aconteceu ao buscarInformacoesDoMundo!");
+		$(location).attr('href', 'login.html');
+	};
+	
+	let objetoPost = {email: email, titulo:titulo, texto:texto};
+	postAjax('http://localhost:3000/projects/mudarTextos', objetoPost, sucesso, errorMundo);
+	
 }
 
 $("#btn-status").popover({
@@ -123,6 +134,7 @@ function pesquisarTempoLocal(position){
 		let cityname = data.name;
 		let iconcode = data.weather[0].icon;
 		let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+		if(!iconurl) iconurl = "https://www.flaticon.com/authors/good-ware"
 		$('#tempoImagem').attr('src', iconurl);
 		$('#cidade').html(cityname);
 	});
@@ -144,6 +156,26 @@ function handleVisibilityChange() {
   
 document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
+function atualizarFome(valor){
+	$("#barraFome").css({"width": valor+"%"});
+}
+function atualizarSolidao(valor){
+	$("#barraSolidao").css({"width": valor+"%"});
+}
+
+function atualizarTristeza(valor){
+	$("#barraTristeza").css({"width": valor+"%"});
+}
+function atualizarSono(valor){
+	$("#barraSono").css({"width": valor+"%"});
+}
+function alterarTexto(valor){
+	$('#texto').html(valor);
+}
+function alterarTitulo(valor){
+	$('#titulo').html(valor);
+}
+
 function buscarInformacoesDoMundo(){
 
 	let email = localStorage.getItem("email");;
@@ -151,16 +183,21 @@ function buscarInformacoesDoMundo(){
 	let sucesso = function(data){
 		mudarCorDeFundo(data.configuracaoMundo.fundo);
 		mudarChaoInicial(data.configuracaoMundo.chao);
-
+		atualizarFome(data.configuracaoMundo.fome);
+		atualizarSolidao(data.configuracaoMundo.solidao);
+		atualizarTristeza(data.configuracaoMundo.tristeza);
+		atualizarSono(data.configuracaoMundo.sono);
+		alterarTexto(data.configuracaoMundo.texto);
+		alterarTitulo(data.configuracaoMundo.titulo);
 	};
 
-	let ferror = function(){
-		alert("Ops! Algo de errado aconteceu!");
+	let errorMundo = function(){
+		alert("Ops! Algo de errado aconteceu ao buscarInformacoesDoMundo!");
 		$(location).attr('href', 'login.html');
 	};
 	
-
-	postAjax('http://localhost:3000/projects', {email: email}, sucesso, ferror);
+	console.log("buscarInformacoesDoMundo: "+email);
+	postAjax('http://localhost:3000/projects', {email: email}, sucesso, errorMundo);
 }
 
 $(document).ready(
